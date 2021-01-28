@@ -23,7 +23,7 @@ from model.model import DistributedModel
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-gpus', '--gpus', dest="gpus", default="0")
-parser.add_argument('-checkpoint', '--checkpoint', dest="checkpoint", default='./checkpoint/checkpoint')
+parser.add_argument('-checkpoint', '--checkpoint', dest="checkpoint", default='../data/checkpoint/checkpoint')
 parser.add_argument('-train_dir', '--train_dir', dest="train_dir", default='../data/train/')
 parser.add_argument('-train_csv', '--train_csv', dest="train_csv", default='../data/train_labels_0.csv')
 parser.add_argument('-test_csv', '--test_csv', dest="test_csv", default='../data/test_labels_0.csv')

@@ -29,7 +29,7 @@ parser.add_argument('-gpus', '--gpus', dest="gpus", default="0")
 parser.add_argument('-train_dir', '--train_dir', dest="train_dir", default='../data/train/')
 parser.add_argument('-train_csv', '--train_csv', dest="train_csv", default='../data/train_labels_0.csv')
 parser.add_argument('-test_csv', '--test_csv', dest="test_csv", default='../data/test_labels_0.csv')
-parser.add_argument('-save_path', '--save_path', dest="save_path", default='../output/checkpoint/checkpoint')
+parser.add_argument('-save_path', '--save_path', dest="save_path", default='../data/checkpoint/checkpoint')
 options = parser.parse_args()
 
 print(options)
@@ -86,7 +86,7 @@ def main():
     'dense_units': 512,
     'dropout_rate': 0.0,
     'save_interval': 50,
-    'wandb':True
+    'wandb':False
     }
     
     

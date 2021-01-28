@@ -28,22 +28,23 @@ sh exec_docker.sh
 도커 컨테이너에 접속하게 되면 컨테이너는 아래와 같은 경로를 가지고 있습니다.
 
 Landmark-Recognition
-  |------data   
-           |------train ## 학습용 데이터셋 경로
-           
-  |------notebook
-           |-----*.ipynb ## 참고용 노트북 파일
-           
-  |------output          ## 모델 학습 시 저장 될 weight 경로
-  
-  |------src             ## 소스파일
-           |-----dataset
-           |-----model
-           |-----utils
-           |-----train.py
-           |-----inference.py 
-           |-----get_train_csv.py
-  |------*
+
+|--data   
+     |-----train ## 학습용 데이터셋 경로
+
+|--notebook
+     |-----*.ipynb ## 참고용 노트북 파일
+
+|--output          ## 모델 학습 시 저장 될 weight 경로
+
+|--src             ## 소스파일
+     |-----dataset
+     |-----model
+     |-----utils
+     |-----train.py
+     |-----inference.py 
+     |-----get_train_csv.py
+|--*
            
 ## 모델 학습  
 
@@ -51,9 +52,9 @@ Landmark-Recognition
 
 원본 데이터를 학습용, 테스트용으로 나누기 위하여 아래의 명령어를 실행합니다. 명령어를 실행하면 `data` 폴더에 fold 별 csv 파일이 생성됨을 확인 할 수 있습니다.
 
-
 ```
-python src/get_train_csv.py
+cd src
+python get_train_csv.py
 ```
 
 ### 모델 학습
@@ -61,7 +62,7 @@ python src/get_train_csv.py
 데이터가 올바르게 마운트되어 있다고 가정 한 후, 아래의 명령어를 통해 모델 학습이 가능합니다.
 
 ```
-python src/train.py
+python train.py
 ```
 
 ## 모델 테스트
@@ -72,10 +73,18 @@ python src/train.py
 
 
 ```
-python src/inference.py
+python inference.py
 
 ```
 
 모델의 테스트 결과물은 `output` 디렉토리에 `submission.csv` 로 생성됩니다.
 
 ## 성능 확인
+
+성능 확인은 아래 명령어로 가능합니다.
+
+
+```
+python test_metrix.py
+
+```
