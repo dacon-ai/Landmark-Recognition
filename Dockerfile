@@ -1,10 +1,10 @@
-FROM ubuntu:latest
+FROM tensorflow/tensorflow:nightly-gpu
 
 RUN apt-get update && apt-get install -y git
 
-RUN git clone https://github.com/dacon-ai/NIA-Docker.git
+RUN git clone https://github.com/dacon-ai/Landmark-Recognition.git
 
-WORKDIR /NIA-Docker
+WORKDIR /Landmark-Recognition
 
 RUN python -m pip install --upgrade pip
 

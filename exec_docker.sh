@@ -1,4 +1,4 @@
 #! /bin/bash
 
-sudo docker run -it --name nia-test -v /home/ubuntu/Dacon/cpt_data/landmark-final:/NIA-Docker/dataset --gpus all nia-landmark
+sudo docker run -it --name nia -v /home/ubuntu/Dacon/HDD_02/landmark/data:/Landmark-Recognition/data --gpus all nia-landmark
  
