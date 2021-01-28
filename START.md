@@ -1,5 +1,13 @@
 # Docker Build
 
+## 깃허브 저장소 복제
+원격 저장소를 클론한 후 경로를 이동합니다.
+
+```
+git clone https://github.com/dacon-ai/Landmark-Recognition.git
+cd Landmark-Recognition
+```
+
 ## 도커 환경 빌드
 
 모델 테스트를 위해 도커 환경을 빌드합니다. `Dockerfile` 이 있는 루트 디렉토리로 이동하여 아래의 명령어를 실행합니다. 
@@ -18,33 +26,37 @@ Docker 환경이 구성이 되었으면, Docker Image로부터 컨테이너를 �
 
 
 ```
+sh exec_docker.sh
+```
+
+마운트하고자 하는 학습용 데이터셋 경로 `/your/data/path/data` 를 수정합니다.
+
+```
 sudo docker run -it --name nia -v /your/data/path/data:/Landmark-Recognition/data --gpus all nia-landmark ## 파일 경로를 수정합니다.
 ```
 
-```
-sh exec_docker.sh
-```
 
 도커 컨테이너에 접속하게 되면 컨테이너는 아래와 같은 경로를 가지고 있습니다.
 
 Landmark-Recognition
 
-|--data   
-     |-----train ## 학습용 데이터셋 경로
+├── data   
+      ├──train ## 학습용 데이터셋 경로
 
-|--notebook
-     |-----*.ipynb ## 참고용 노트북 파일
+├── notebook
+      ├──*.ipynb ## 참고용 노트북 파일
 
-|--output          ## 모델 학습 시 저장 될 weight 경로
-
-|--src             ## 소스파일
-     |-----dataset
-     |-----model
-     |-----utils
-     |-----train.py
-     |-----inference.py 
-     |-----get_train_csv.py
-|--*
+├── output  ## 모델 학습 시 저장 될 weight 경로
+    
+├──src      ## 소스파일
+     ├──dataset
+     ├──model
+     ├──utils
+     ├──train.py
+     ├──inference.py 
+     ├──get_train_csv.py
+     ├──test_metrix.py
+├──*
            
 ## 모델 학습  
 

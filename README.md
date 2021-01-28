@@ -32,7 +32,7 @@
 T. Weyand*, A. Araujo*, B. Cao, J. Sim,
 Proc. CVPR'20
 ```
-[![Paper](http://img.shields.io/badge/paper-arXiv.2004.01804-B3181B.svg)](https://arxiv.org/abs/2004.01804) -- 수정필요
+[![Paper](http://img.shields.io/badge/paper-arXiv.2004.01804-B3181B.svg)](https://arxiv.org/abs/2004.01804)
 ```
 "A Family of Contextual Measures of Similarity between Distributions with Application to Image Retrieval," 
 F. Perronnin, Y. Liu, and J.-M. Renders, 
