@@ -42,29 +42,29 @@ Landmark-Recognition
 
 ├── data   
 
-      └─ train ## 학습용 데이터셋 경로
+  └─ train ## 학습용 데이터셋 경로
 
 ├── notebook
 
-      └─*.ipynb ## 참고용 노트북 파일
+  └─*.ipynb ## 참고용 노트북 파일
 
 ├── output  ## 모델 학습 시 저장 될 weight 경로
     
 ├──src      ## 소스파일
 
-     └─dataset
+  └─dataset
      
-     └─model
+  └─model
      
-     └─utils
+  └─utils
      
-     └─train.py
+  └─train.py
      
-     └─inference.py 
+  └─inference.py 
      
-     └─get_train_csv.py
+  └─get_train_csv.py
      
-     └─test_metrix.py
+  └─test_metrix.py
 ├──*
            
 ## 모델 학습  
@@ -88,7 +88,7 @@ python train.py
 
 ## 모델 테스트
 
-모델 학습이 완료되면 `output` 디렉토리에 checkpoint 파일이 생성됩니다.
+모델 학습이 완료되면 `data` 디렉토리에 checkpoint 파일이 생성됩니다.
 
 모델 테스트는 아래의 명령어를 통해 가능합니다.
 
@@ -98,7 +98,7 @@ python inference.py
 
 ```
 
-모델의 테스트 결과물은 `output` 디렉토리에 `submission.csv` 로 생성됩니다.
+모델의 테스트 결과물은 `data` 디렉토리에 `submission.csv` 로 생성됩니다.
 
 ## 성능 확인
 

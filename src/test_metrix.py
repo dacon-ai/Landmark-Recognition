@@ -100,7 +100,7 @@ file_name = '../data/train_labels_0.csv'
 train_df, mapping = read_train_file(input_path, file_name, query)
 
 gt_df = pd.read_csv('../data/test_labels_0.csv')
-pred_df = pd.read_csv('../output/submission.csv')
+pred_df = pd.read_csv('../data/submission.csv')
 
 ids = []
 landmark_name = gt_df.id.str.split('_')
