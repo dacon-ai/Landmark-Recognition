@@ -41,16 +41,25 @@ Landmark-Recognition
            |-----model
            |-----utils
            |-----train.py
-           |-----inference.py  
+           |-----inference.py 
+           |-----get_train_csv.py
   |------*
            
 ## 모델 학습  
 
 ### 학습용 CSV 생성
 
+원본 데이터를 학습용, 테스트용으로 나누기 위하여 아래의 명령어를 실행합니다. 명령어를 실행하면 `data` 폴더에 fold 별 csv 파일이 생성됨을 확인 할 수 있습니다.
 
+
+```
+python src/get_train_csv.py
+```
+
+### 모델 학습
            
 데이터가 올바르게 마운트되어 있다고 가정 한 후, 아래의 명령어를 통해 모델 학습이 가능합니다.
+
 ```
 python src/train.py
 ```
