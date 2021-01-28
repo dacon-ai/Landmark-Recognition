@@ -41,21 +41,30 @@ sudo docker run -it --name nia -v /your/data/path/data:/Landmark-Recognition/dat
 Landmark-Recognition
 
 ├── data   
-      ├──train ## 학습용 데이터셋 경로
+
+      └─ train ## 학습용 데이터셋 경로
 
 ├── notebook
-      ├──*.ipynb ## 참고용 노트북 파일
+
+      └─*.ipynb ## 참고용 노트북 파일
 
 ├── output  ## 모델 학습 시 저장 될 weight 경로
     
 ├──src      ## 소스파일
-     ├──dataset
-     ├──model
-     ├──utils
-     ├──train.py
-     ├──inference.py 
-     ├──get_train_csv.py
-     ├──test_metrix.py
+
+     └─dataset
+     
+     └─model
+     
+     └─utils
+     
+     └─train.py
+     
+     └─inference.py 
+     
+     └─get_train_csv.py
+     
+     └─test_metrix.py
 ├──*
            
 ## 모델 학습  
