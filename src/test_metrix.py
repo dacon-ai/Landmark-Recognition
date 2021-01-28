@@ -124,5 +124,5 @@ class_ap = pd.DataFrame({'num_landmark': num_of_id,
                          'num_true': num_of_true,
                          'ap': num_of_true/num_of_id,
                          })    
-class_ap.to_csv('../output/class_ap.csv')
-gt_df.to_csv('../output/result.csv')
+class_ap.to_csv('../data/class_ap.csv')
+gt_df.to_csv('../data/result.csv')
