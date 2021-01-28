@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import glob
+from tqdm import tqdm
 from utils.utils import *
 
 def select_for_metric(df_answer, df_submission):
@@ -77,14 +78,20 @@ def gap(true_df, pred_df):
     queries_with_target = len([i for i in y_true.values() if i[0] is not ''])
     correct_predictions = 0
     total_score = 0.
+    collect_pred = []
     for i, k in enumerate(indexes, 1):
         relevance_of_prediction_i = 0
         if y_true[k] == y_pred[k][0]:
             correct_predictions += 1
             relevance_of_prediction_i = 1
+            collect_pred.append(1)
+        else:
+            collect_pred.append(0)
+            
         precision_at_rank_i = correct_predictions / i
         total_score += precision_at_rank_i * relevance_of_prediction_i
-    return 1 / queries_with_target * total_score
+        
+    return 1 / queries_with_target * total_score, collect_pred, indexes
 
 
 input_path = '../data/train/'
@@ -95,8 +102,27 @@ train_df, mapping = read_train_file(input_path, file_name, query)
 gt_df = pd.read_csv('../data/test_labels_0.csv')
 pred_df = pd.read_csv('../output/submission.csv')
 
-y_true = {}
-for i, value in zip(gt_df['id'], gt_df[['landmark_id']].values):
-    y_true[i] = tuple(value)
+ids = []
+landmark_name = gt_df.id.str.split('_')
+for i in range(len(landmark_name)):
+    ids.append(landmark_name[i][0])
     
-print(f'{gap(gt_df, pred_df)}')
+gt_df['landmark_name'] = ids
+gt_df['pred'] = 0
+
+score, true, index = gap(gt_df, pred_df)
+print(score)
+
+print('generate result.csv')
+for i in tqdm(range(len(index))):
+    gt_df.loc[gt_df['id'] == index[i], 'pred'] = true[i]
+    
+num_of_id = gt_df.groupby('landmark_id').id.count()
+num_of_true = gt_df.groupby('landmark_id').pred.sum()
+
+class_ap = pd.DataFrame({'num_landmark': num_of_id,
+                         'num_true': num_of_true,
+                         'ap': num_of_true/num_of_id,
+                         })    
+class_ap.to_csv('../output/class_ap.csv')
+gt_df.to_csv('../output/result.csv')

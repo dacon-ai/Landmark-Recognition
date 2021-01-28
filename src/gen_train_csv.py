@@ -53,7 +53,7 @@ def generate_dict(file_paths, classes):
 
     gen_dict = {'id': ids,
              'landmark_id': landmark_ids,
-             'path': path}    
+             'path': path}
     return gen_dict
 
 train_file_paths = read_image_file(configs['DATA_DIR'], query)

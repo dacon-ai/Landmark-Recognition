@@ -120,7 +120,7 @@ def main():
     submission_df = submission_df.drop('prob', axis=1)
     submission_df = submission_df.drop('path', axis=1)
     submission_df = submission_df[submission_df.columns[[0, 1, 4]]]
-    submission_df.to_csv('submission.csv', index=False)          
+    submission_df.to_csv('../output/submission.csv', index=False)          
     
     
 if __name__ == '__main__':

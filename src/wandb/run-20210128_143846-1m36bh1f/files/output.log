@@ -1,0 +1,65 @@
+2021-01-28 14:38:48.231401: W tensorflow/core/grappler/optimizers/data/auto_shard.cc:656] In AUTO-mode, and switching to DATA-based sharding, instead of FILE-based sharding as we cannot find appropriate reader dataset op(s) to shard. Error: Found an unshardable source dataset: name: "TensorSliceDataset/_3"
+op: "TensorSliceDataset"
+input: "Placeholder/_0"
+input: "Placeholder/_1"
+input: "Placeholder/_2"
+attr {
+  key: "Toutput_types"
+  value {
+    list {
+      type: DT_STRING
+      type: DT_INT64
+      type: DT_FLOAT
+    }
+  }
+}
+attr {
+  key: "output_shapes"
+  value {
+    list {
+      shape {
+      }
+      shape {
+      }
+      shape {
+      }
+    }
+  }
+}
+
+0it [00:00, ?it/s]2021-01-28 14:38:48.245417: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:145] None of the MLIR Optimization Passes are enabled (registered 2)
+2021-01-28 14:38:48.268134: I tensorflow/core/platform/profile_utils/cpu_utils.cc:112] CPU Frequency: 3499910000 Hz
+2021-01-28 14:39:18.439002: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2021-01-28 14:39:19.112755: I tensorflow/stream_executor/cuda/cuda_dnn.cc:334] Loaded cuDNN version 8005
+2021-01-28 14:39:20.039701: I tensorflow/stream_executor/cuda/cuda_dnn.cc:334] Loaded cuDNN version 8005
+2021-01-28 14:39:20.839189: W tensorflow/stream_executor/gpu/asm_compiler.cc:191] Falling back to the CUDA driver for PTX compilation; ptxas does not support CC 8.6
+2021-01-28 14:39:20.839258: W tensorflow/stream_executor/gpu/asm_compiler.cc:194] Used ptxas at /usr/local/cuda-11.0/bin/ptxas
+2021-01-28 14:39:20.839430: W tensorflow/stream_executor/gpu/redzone_allocator.cc:314] Unimplemented: /usr/local/cuda-11.0/bin/ptxas ptxas too old. Falling back to the driver to compile.
+Relying on driver to perform ptx compilation. 
+Modify $PATH to customize ptxas location.
+This message will be only logged once.
+2021-01-28 14:39:20.896861: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2021-01-28 14:39:21.547420: I tensorflow/stream_executor/cuda/cuda_dnn.cc:334] Loaded cuDNN version 8005
+2021-01-28 14:39:22.940010: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.11
+2021-01-28 14:39:23.806988: I tensorflow/stream_executor/cuda/cuda_blas.cc:1838] TensorFloat-32 will be used for the matrix multiplication. This will only be logged once.
+TRAIN: Loss 11.114, Accuracy 0.000: : 0it [00:37, ?it/s]TRAIN: Loss 11.114, Accuracy 0.000: : 1it [00:37, 37.83s/it]TRAIN: Loss 11.224, Accuracy 0.000: : 1it [00:38, 37.83s/it]TRAIN: Loss 11.224, Accuracy 0.000: : 2it [00:38, 15.87s/it]TRAIN: Loss 11.260, Accuracy 0.000: : 2it [00:38, 15.87s/it]TRAIN: Loss 11.260, Accuracy 0.000: : 3it [00:38,  8.71s/it]TRAIN: Loss 11.188, Accuracy 0.000: : 3it [00:38,  8.71s/it]TRAIN: Loss 11.188, Accuracy 0.000: : 4it [00:38,  5.36s/it]TRAIN: Loss 11.291, Accuracy 0.000: : 4it [00:38,  5.36s/it]TRAIN: Loss 11.291, Accuracy 0.000: : 5it [00:38,  3.51s/it]TRAIN: Loss 11.281, Accuracy 0.000: : 5it [00:39,  3.51s/it]TRAIN: Loss 11.281, Accuracy 0.000: : 6it [00:39,  2.38s/it]TRAIN: Loss 11.281, Accuracy 0.000: : 6it [00:39,  6.56s/it]
+Traceback (most recent call last):
+  File "train.py", line 134, in <module>
+    main()
+  File "train.py", line 130, in main
+    save_path=options.save_path)
+  File "/home/dacon/Dacon/HDD_02/landmark/src/model/model.py", line 226, in train
+    loss = self._distributed_train_step(inputs)
+  File "/home/dacon/anaconda3/envs/nia/lib/python3.7/site-packages/tensorflow/python/eager/def_function.py", line 818, in __call__
+    result = self._call(*args, **kwds)
+  File "/home/dacon/anaconda3/envs/nia/lib/python3.7/site-packages/tensorflow/python/eager/def_function.py", line 846, in _call
+    return self._stateless_fn(*args, **kwds)  # pylint: disable=not-callable
+  File "/home/dacon/anaconda3/envs/nia/lib/python3.7/site-packages/tensorflow/python/eager/function.py", line 2994, in __call__
+    filtered_flat_args, captured_inputs=graph_function.captured_inputs)  # pylint: disable=protected-access
+  File "/home/dacon/anaconda3/envs/nia/lib/python3.7/site-packages/tensorflow/python/eager/function.py", line 1939, in _call_flat
+    ctx, args, cancellation_manager=cancellation_manager))
+  File "/home/dacon/anaconda3/envs/nia/lib/python3.7/site-packages/tensorflow/python/eager/function.py", line 569, in call
+    ctx=ctx)
+  File "/home/dacon/anaconda3/envs/nia/lib/python3.7/site-packages/tensorflow/python/eager/execute.py", line 60, in quick_execute
+    inputs, attrs, num_outputs)
+KeyboardInterrupt

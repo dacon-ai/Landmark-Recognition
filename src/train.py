@@ -79,14 +79,14 @@ def main():
     'scale': 30,
     'margin': 0.1,
     'clip_grad': 10.0,
-    'n_epochs': 50,
-    'batch_size': 256,
+    'n_epochs': 200,
+    'batch_size': 768,
     'input_size': (224, 224, 3),
     'n_classes': len(train_df['label'].unique()),
     'dense_units': 512,
     'dropout_rate': 0.0,
     'save_interval': 50,
-    'wandb':False
+    'wandb':True
     }
     
     
