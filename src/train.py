@@ -86,7 +86,7 @@ def main():
     'dense_units': 512,
     'dropout_rate': 0.0,
     'save_interval': 50,
-    'wandb':True
+    'wandb':False
     }
     
     
