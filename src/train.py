@@ -80,7 +80,7 @@ def main():
     'margin': 0.1,
     'clip_grad': 10.0,
     'n_epochs': 200,
-    'batch_size': 768,
+    'batch_size': 48,
     'input_size': (224, 224, 3),
     'n_classes': len(train_df['label'].unique()),
     'dense_units': 512,
